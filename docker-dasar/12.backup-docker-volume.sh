@@ -37,7 +37,7 @@ docker image pull ubuntu:latest
 docker container stop namaContainer
 
 # Perintah
-docker container run --rm --name ubuntubackup --mount "type=bind,source=/Users/stevanuspangau/Development/Learning/Belajar-Docker/docker-dasar/backup,destination=/backup" --mount "type=volume,source=mongodata,destination=/data" ubuntu:latest tar cvf /backup/mongodata-backup.tar.gz /data
+docker container run --rm --name ubuntubackup --mount "type=bind,source=/Users/stevanuspangau/Development/Learning/Belajar-Docker-contoh_backup,destination=/backup" --mount "type=volume,source=mongodata,destination=/data" ubuntu:latest tar cvf /backup/mongodata-backup.tar.gz /data
 
 # tinggal di start lagi
 docker container start namaContainer
