@@ -23,3 +23,30 @@ docker build -t stevanuspangau/label label
 
 # Add
 docker build -t stevanuspangau/add add
+# Add - Untuk melihat hasil Add
+docker container create --name add stevanuspangau/add
+docker container start add
+docker container logs add
+
+# Copy
+docker build -t stevanuspangau/copy copy
+# Copy - Untuk melihat hasil Copy
+docker container create --name copy stevanuspangau/copy
+docker container start copy
+docker container logs copy
+
+# Ignore
+docker build -t stevanuspangau/ignore ignore
+# Ignore - Untuk melihat hasil Ignore
+docker container create --name ignore stevanuspangau/ignore
+docker container start ignore
+docker container logs ignore
+
+# Expose
+docker build -t stevanuspangau/expose expose
+# Expose - Untuk melihat hasil Expose lihat di inspect pada bagian ExposedPorts
+docker image inspect stevanuspangau/expose
+# Expose - Kita coba buat container dari image stevanuspangau/expose
+docker container create --name expose --publish 8080:8080 stevanuspangau/expose
+docker container start expose
+docker container logs expose
