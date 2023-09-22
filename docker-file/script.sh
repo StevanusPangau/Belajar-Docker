@@ -1,19 +1,25 @@
-# From Instruction
+# From
 docker build -t stevanuspangau/from from
 
-# From Run
+# Run
 docker build -t stevanuspangau/run run
 
-# From Run - memunculkan Display Output seperti cat
+# Run - memunculkan Display Output seperti cat
 docker build -t stevanuspangau/run run --progress=plain --no-cache
 
-# From Command
+# Command
 docker build -t stevanuspangau/command command
 
-# From Command - untuk melihat hasil echo ketik perintah
+# Command - untuk melihat hasil echo ketik perintah
 docker image inspect stevanuspangau/command
 
-# From Command - buat container dari image stevanuspangau/command
+# Command - buat container dari image stevanuspangau/command
 docker container create --name command stevanuspangau/command
 docker container start command
 docker container logs command
+
+# Label
+docker build -t stevanuspangau/label label
+
+# Add
+docker build -t stevanuspangau/add add
