@@ -60,3 +60,23 @@ docker image inspect stevanuspangau/env
 docker container create --name env --env APP_PORT=9090 -p 9090:9090 stevanuspangau/env
 docker container start env
 docker container logs env
+
+
+# Volume
+docker build -t stevanuspangau/volume volume
+# Volume - Untuk melihat hasil Volume
+docker image inspect stevanuspangau/volume
+# Volume - Kita coba buat container dari image stevanuspangau/volume
+docker container create --name volume --env APP_PORT=9090 -p 9090:9090 stevanuspangau/volume
+docker container start volume
+docker container logs volume
+
+
+# Workdir
+docker build -t stevanuspangau/workdir workdir
+# Workdir - Kita coba buat container dari image stevanuspangau/workdir
+docker container create --name workdir -p 8080:8080 stevanuspangau/workdir
+docker container start workdir
+# Workdir - Kita coba masuk ke execnya
+docker container exec -i -t workdir /bin/sh
+# Lalu coba ketik PWD untuk melihat direktori sekarang
