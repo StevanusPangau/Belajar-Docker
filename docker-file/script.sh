@@ -50,3 +50,13 @@ docker image inspect stevanuspangau/expose
 docker container create --name expose --publish 8080:8080 stevanuspangau/expose
 docker container start expose
 docker container logs expose
+
+
+# Env
+docker build -t stevanuspangau/env env
+# Env - Untuk melihat hasil Env
+docker image inspect stevanuspangau/env
+# Env - Kita coba buat container dari image stevanuspangau/env dan kita coba ganti env portnya
+docker container create --name env --env APP_PORT=9090 -p 9090:9090 stevanuspangau/env
+docker container start env
+docker container logs env
