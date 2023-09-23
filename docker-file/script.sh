@@ -80,3 +80,22 @@ docker container start workdir
 # Workdir - Kita coba masuk ke execnya
 docker container exec -i -t workdir /bin/sh
 # Lalu coba ketik PWD untuk melihat direktori sekarang
+
+
+# User
+docker build -t stevanuspangau/user user
+# User - Kita coba buat container dari image stevanuspangau/user
+docker container create --name user -p 8080:8080 stevanuspangau/user
+docker container start user
+# User - Kita coba masuk ke execnya
+docker container exec -i -t user /bin/sh
+# Lalu coba ketik 'whoami' untuk melihat user sekarang
+
+
+# Argumen
+docker build -t stevanuspangau/arg arg --build-arg app=evan
+# Argumen - Kita coba buat container dari image stevanuspangau/arg
+docker container create --name arg -p 8080:8080 stevanuspangau/arg
+docker container start arg
+# Argumen - Kita coba masuk ke execnya
+docker container exec -i -t arg /bin/sh
