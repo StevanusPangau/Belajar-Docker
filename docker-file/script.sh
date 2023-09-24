@@ -1,133 +1,137 @@
-# From
+# 1. From
 docker build -t stevanuspangau/from from
 
-# Run
-docker build -t stevanuspangau/run run
 
-# Run - memunculkan Display Output seperti cat
+# 2. Run
+docker build -t stevanuspangau/run run
+# 2. Run - memunculkan Display Output seperti cat
 docker build -t stevanuspangau/run run --progress=plain --no-cache
 
-# Command
+
+# 3. Command
 docker build -t stevanuspangau/command command
-
-# Command - untuk melihat hasil echo ketik perintah
+# 3. Command - untuk melihat hasil echo ketik perintah
 docker image inspect stevanuspangau/command
-
-# Command - buat container dari image stevanuspangau/command
+# 3. Command - buat container dari image stevanuspangau/command
 docker container create --name command stevanuspangau/command
 docker container start command
 docker container logs command
 
-# Label
+
+# 4. Label
 docker build -t stevanuspangau/label label
 
-# Add
+
+# 5. Add
 docker build -t stevanuspangau/add add
-# Add - Untuk melihat hasil Add
+# 5. Add - Untuk melihat hasil Add
 docker container create --name add stevanuspangau/add
 docker container start add
 docker container logs add
 
-# Copy
+
+# 6. Copy
 docker build -t stevanuspangau/copy copy
-# Copy - Untuk melihat hasil Copy
+# 6. Copy - Untuk melihat hasil Copy
 docker container create --name copy stevanuspangau/copy
 docker container start copy
 docker container logs copy
 
-# Ignore
+
+# 7. Ignore
 docker build -t stevanuspangau/ignore ignore
-# Ignore - Untuk melihat hasil Ignore
+# 7. Ignore - Untuk melihat hasil Ignore
 docker container create --name ignore stevanuspangau/ignore
 docker container start ignore
 docker container logs ignore
 
-# Expose
+
+# 8. Expose
 docker build -t stevanuspangau/expose expose
-# Expose - Untuk melihat hasil Expose lihat di inspect pada bagian ExposedPorts
+# 8. Expose - Untuk melihat hasil Expose lihat di inspect pada bagian ExposedPorts
 docker image inspect stevanuspangau/expose
-# Expose - Kita coba buat container dari image stevanuspangau/expose
+# 8. Expose - Kita coba buat container dari image stevanuspangau/expose
 docker container create --name expose --publish 8080:8080 stevanuspangau/expose
 docker container start expose
 docker container logs expose
 
 
-# Env
+# 9. Env
 docker build -t stevanuspangau/env env
-# Env - Untuk melihat hasil Env
+# 9. Env - Untuk melihat hasil Env
 docker image inspect stevanuspangau/env
-# Env - Kita coba buat container dari image stevanuspangau/env dan kita coba ganti env portnya
+# 9. Env - Kita coba buat container dari image stevanuspangau/env dan kita coba ganti env portnya
 docker container create --name env --env APP_PORT=9090 -p 9090:9090 stevanuspangau/env
 docker container start env
 docker container logs env
 
 
-# Volume
+# 10. Volume
 docker build -t stevanuspangau/volume volume
-# Volume - Untuk melihat hasil Volume
+# 10. Volume - Untuk melihat hasil Volume
 docker image inspect stevanuspangau/volume
-# Volume - Kita coba buat container dari image stevanuspangau/volume
+# 10. Volume - Kita coba buat container dari image stevanuspangau/volume
 docker container create --name volume --env APP_PORT=9090 -p 9090:9090 stevanuspangau/volume
 docker container start volume
 docker container logs volume
 
 
-# Workdir
+# 11. Workdir
 docker build -t stevanuspangau/workdir workdir
-# Workdir - Kita coba buat container dari image stevanuspangau/workdir
+# 11. Workdir - Kita coba buat container dari image stevanuspangau/workdir
 docker container create --name workdir -p 8080:8080 stevanuspangau/workdir
 docker container start workdir
-# Workdir - Kita coba masuk ke execnya
+# 11. Workdir - Kita coba masuk ke execnya
 docker container exec -i -t workdir /bin/sh
 # Lalu coba ketik PWD untuk melihat direktori sekarang
 
 
-# User
+# 12. User
 docker build -t stevanuspangau/user user
-# User - Kita coba buat container dari image stevanuspangau/user
+# 12. User - Kita coba buat container dari image stevanuspangau/user
 docker container create --name user -p 8080:8080 stevanuspangau/user
 docker container start user
-# User - Kita coba masuk ke execnya
+# 12. User - Kita coba masuk ke execnya
 docker container exec -i -t user /bin/sh
 # Lalu coba ketik 'whoami' untuk melihat user sekarang
 
 
-# Argumen
+# 13. Argumen
 docker build -t stevanuspangau/arg arg --build-arg app=evan
-# Argumen - Kita coba buat container dari image stevanuspangau/arg
+# 13. Argumen - Kita coba buat container dari image stevanuspangau/arg
 docker container create --name arg -p 8080:8080 stevanuspangau/arg
 docker container start arg
-# Argumen - Kita coba masuk ke execnya
+# 13. Argumen - Kita coba masuk ke execnya
 docker container exec -i -t arg /bin/sh
 
 
-# Healthcheck
+# 14. Healthcheck
 docker build -t stevanuspangau/health health
-# Healthcheck - Kita coba buat container dari image stevanuspangau/health
+# 14. Healthcheck - Kita coba buat container dari image stevanuspangau/health
 docker container create --name health -p 8080:8080 stevanuspangau/health
 docker container start health
-# Untuk check jika container masih sehat cukup ketik
+# 14. Healthcheck- Untuk check jika container masih sehat cukup ketik
 docker container ls
 docker container inspect health
 
 
-# Entrypoint
+# 15. Entrypoint
 docker build -t stevanuspangau/entrypoint entrypoint
-# Entrypoint - Kita coba buat container dari image stevanuspangau/entrypoint
+# 15. Entrypoint - Kita coba buat container dari image stevanuspangau/entrypoint
 docker container create --name entrypoint -p 8080:8080 stevanuspangau/entrypoint
 docker container start entrypoint
 docker container logs entrypoint
-# Entrypoint - Kita coba masuk ke execnya
+# 15. Entrypoint - Kita coba masuk ke execnya
 docker container exec -i -t entrypoint /bin/sh
 
 
-# Multi Stage Build
+# 16. Multi Stage Build
 docker build -t stevanuspangau/multi multi
-# Multi Stage Build - Lihat size image
+# 16. Multi Stage Build - Lihat size image
 docker image ls
-# Multi Stage Build - Kita coba buat container dari image stevanuspangau/multi
+# 16. Multi Stage Build - Kita coba buat container dari image stevanuspangau/multi
 docker container create --name multi -p 8080:8080 stevanuspangau/multi
 docker container start multi
 curl localhost:8080
-# Multi Stage Build - Kita coba masuk ke execnya
+# 16. Multi Stage Build - Kita coba masuk ke execnya
 docker container exec -i -t multi /bin/sh
