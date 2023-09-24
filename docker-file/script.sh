@@ -99,3 +99,23 @@ docker container create --name arg -p 8080:8080 stevanuspangau/arg
 docker container start arg
 # Argumen - Kita coba masuk ke execnya
 docker container exec -i -t arg /bin/sh
+
+
+# Healthcheck
+docker build -t stevanuspangau/health health
+# Healthcheck - Kita coba buat container dari image stevanuspangau/health
+docker container create --name health -p 8080:8080 stevanuspangau/health
+docker container start health
+# Untuk check jika container masih sehat cukup ketik
+docker container ls
+docker container inspect health
+
+
+# Entrypoint
+docker build -t stevanuspangau/entrypoint entrypoint
+# Entrypoint - Kita coba buat container dari image stevanuspangau/entrypoint
+docker container create --name entrypoint -p 8080:8080 stevanuspangau/entrypoint
+docker container start entrypoint
+docker container logs entrypoint
+# Entrypoint - Kita coba masuk ke execnya
+docker container exec -i -t entrypoint /bin/sh
