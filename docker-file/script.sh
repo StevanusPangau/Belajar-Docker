@@ -119,3 +119,15 @@ docker container start entrypoint
 docker container logs entrypoint
 # Entrypoint - Kita coba masuk ke execnya
 docker container exec -i -t entrypoint /bin/sh
+
+
+# Multi Stage Build
+docker build -t stevanuspangau/multi multi
+# Multi Stage Build - Lihat size image
+docker image ls
+# Multi Stage Build - Kita coba buat container dari image stevanuspangau/multi
+docker container create --name multi -p 8080:8080 stevanuspangau/multi
+docker container start multi
+curl localhost:8080
+# Multi Stage Build - Kita coba masuk ke execnya
+docker container exec -i -t multi /bin/sh
