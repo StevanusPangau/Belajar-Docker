@@ -1,0 +1,21 @@
+{
+  "firstName": "Stevanus",
+  "middleName": "Evan",
+  "lastName": "Pangau",
+  "hobbies": ["Futsal", "Badminton", "Basket"],
+  "address": {
+    "street": "Jl. Raya Cipinang",
+    "city": "Jakarta Timur",
+    "province": "DKI Jakarta"
+  },
+  "wallet": [
+    {
+      "name": "BNI",
+      "balance": 1000000
+    },
+    {
+      "name": "BCA",
+      "balance": 5000000
+    }
+  ]
+}

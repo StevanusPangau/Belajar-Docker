@@ -1,0 +1,23 @@
+# Jadi di YAML petik dua itu optional
+firstName: Stevanus
+middleName: Evan
+lastName: Pangau
+
+# Contoh array di yaml
+hobbies:
+  - coding
+  - reading
+  - writing
+
+# Contoh nested object
+address:
+  street: Jl. Kebon Jeruk
+  city: Jakarta Barat
+  country: Indonesia
+
+# Contoh array nested object
+skills:
+  - name: PHP
+    level: advanced
+  - name: Golang
+    level: beginner
