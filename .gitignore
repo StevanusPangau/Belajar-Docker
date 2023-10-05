@@ -1,0 +1,4 @@
+docker-dasar/backup/*
+docker-dasar/mongo-data/*
+docker-compose/6.bind-mount/data-mongo1/*
+docker-compose/6.bind-mount/data-mongo2/*

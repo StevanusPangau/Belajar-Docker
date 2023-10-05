@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  mongodb-example:
+    image: mongo:latest
+    container_name: mongodb-example
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: evan
+      MONGO_INITDB_ROOT_PASSWORD: evan
+      MONGO_INITDB_DATABASE: admin
+    volumes:
+      - mongo-data1:/data/db
+  mongodb-example2:
+    image: mongo:latest
+    container_name: mongodb-example2
+    ports:
+      - 27018:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: evan
+      MONGO_INITDB_ROOT_PASSWORD: evan
+      MONGO_INITDB_DATABASE: admin
+    # Contoh long syntax
+    volumes:
+      - type: volume
+        source: mongo-data2
+        target: /data/db
+        read_only: false
+
+# Untuk membuat volume harus ada container yang menggunakan volume tersebut
+volumes:
+  mongo-data1:
+    name: mongo-data1
+  mongo-data2:
+    name: mongo-data2

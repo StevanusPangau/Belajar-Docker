@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  mongodb-example:
+    image: mongo:latest
+    container_name: mongodb-example
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: evan
+      MONGO_INITDB_ROOT_PASSWORD: evan
+      MONGO_INITDB_DATABASE: admin
+    # Untuk bind volume di compose SOURCE:TARGET:MODE
+    # pada contoh dibawah ini ./data-mongo1 adalah folder di host
+    # sedangkan /data/db adalah folder di container
+    # pisahkan pakai titik dua (:)
+    volumes:
+      - ./data-mongo1:/data/db
+  mongodb-example2:
+    image: mongo:latest
+    container_name: mongodb-example2
+    ports:
+      - 27018:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: evan
+      MONGO_INITDB_ROOT_PASSWORD: evan
+      MONGO_INITDB_DATABASE: admin
+    # Contoh long syntax
+    volumes:
+      - type: bind
+        source: ./data-mongo2
+        target: /data/db
+        read_only: false
