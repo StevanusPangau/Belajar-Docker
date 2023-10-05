@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    ports:
+      - protocol: tcp
+        published: 8080
+        target: 80
+    # contoh mengatur resource
+    deploy:
+      resources:
+        reservations:
+          cpus: '0.25'
+          memory: 20M
+        limits:
+          cpus: '0.50'
+          memory: 50M
